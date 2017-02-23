@@ -91,8 +91,7 @@ public class BinaryTreeZigZagLevelOrderTraversal {
 			isOdd = !isOdd;
 			Queue tmp = current;
 			current = next;
-			next = tmp;
-			
+			next = tmp;	
 		}
 
 		return result;
