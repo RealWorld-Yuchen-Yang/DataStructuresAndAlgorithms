@@ -45,6 +45,7 @@ public class BinaryTreeMaximumPathSum {
 		if(r>0)
 			sum+=r;
 		
+		//return the maximum sum of the current subTree
 		return Math.max(r, l) >0 ? Math.max(r, l) + root.val:root.val;
 		
 	}
