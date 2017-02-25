@@ -34,15 +34,15 @@ public class SortColors
 	public static void sortColors(int[] colors) {
         partition(colors, partition(colors, 0, colors.length, RED),colors.length, WHITE);
     }
-    private static int partition(int[] nums, int begin, int end, int color) {
+    private static int partition(int[] colors, int begin, int end, int color) {
         int pos = begin;
 
         /*
          * note, here begin and end are both moving
          */
         for (; begin != end; ++begin)
-            if (color == nums[begin])
-                swap(nums, begin,pos++);
+            if (color == colors[begin])
+                swap(colors, begin,pos++);
 
         return pos;
     }
