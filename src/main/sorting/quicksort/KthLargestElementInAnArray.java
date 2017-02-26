@@ -10,21 +10,14 @@ import test.utils.YuchenPrinter;
  * 
  * Analysis: 
  * 	best solution is to use quick sort,
- *  because we do not care the whole sequence of the array
- *  jut the k-th element
- * 	time complexity: O(n)
- * 	space complexity: O(1)
  * 
  * 	step1: randomly select an element from the given array as the pivot x. 
- *  step2: conceptually separate the array into two parts: sa and sb
+ * 			(here we just arbitrarily choose the value at the end)
+ *  step2: conceptually separate the array into two parts: left and right
  *  	   for each iteration, 
  *  	   
- *  	   sa: stores elements < x
- *  	   sb: stores elements > x
- *  		
- *  	   after one iteration's swapping, 
- *  	   if sa.length < k, then recursively find the sb[k-sa.length]
- *  	   if sa.length >= k, then recursively find the sa[k]
+ *  	   left: stores elements < x
+ *  	   right: stores elements > x
  * @author yuchenyang
  *
  */
@@ -33,36 +26,66 @@ public class KthLargestElementInAnArray {
      quickSort(nums, 0, nums.length - 1);
      return nums[nums.length - k];
  }
- private static int findKthLargest(int[] nums, int begin, int end, int k) {
-     if (begin + 1 == end && k == 1) return nums[0];
 
-     final int pos = partition(nums, begin, end - 1);
-     final int len = pos - begin;
+ private static void quickSort(int[] array, int left, int right)
+ {
+	 if(right<=left)
+	 {
+		 return;
+	 }
+	 else
+	 {
+		 int pivot = array[right];//arbitrarily choose the element in the end as a pivot
+		 int pivotLocation = partitionArray(array, left, right, pivot);
+		 quickSort(array, left, pivotLocation-1);//Sorts the left side
+		 quickSort(array, pivotLocation+1, right);//Sorts the right side
+	 }
+ }
+ 
+ /**
+  * 
+  * @param array
+  * @param left, left "index"
+  * @param right, right "index"
+  * @param pivot, pivot "value"
+  * @return pivot "index"
+  */
+ private static int partitionArray(int[] array, int left, int right, int pivot)
+ {
+	 int leftPointer = -1;
+	 int rightPointer = right;
+	 while(true)
+	 {
+		 while(array[++leftPointer]<pivot);
+		 while(rightPointer>0&&array[--rightPointer]>pivot);
+		 if(leftPointer >= rightPointer)
+		 {
+			 break;
+		 }
+		 else
+		 {
+			 swap(array, leftPointer, rightPointer);
+		 }
+	 }
+	 /*
+	  * Note!! here we are swapping the leftPoitner with the right
+	  * (which is the arbitrary pivot index)
+	  * We are doing this because,
+	  * we would always want to 
+	  */
+	 YuchenPrinter.printArray(array, "Before swapping");
+	 System.out.println(pivot);
+	 swap(array, leftPointer, right);//restore the pivotValue to its position
+	 YuchenPrinter.printArray(array, "After swapping");
 
-     if (len == k) {
-         return nums[pos-1];
-     } else if (len < k) {
-         return findKthLargest(nums, pos, end, k - len);
-     } else {
-         return findKthLargest(nums, begin, pos, k);
-     }
+	 return leftPointer;
  }
- private static void quickSort(int[] nums, int left, int right) {
-     if (left < right) {
-         final int pos = partition(nums, left, right);
-         quickSort(nums, left, pos - 1);
-         quickSort(nums, pos + 1, right);
-     }
+ 
+ private static void swap(int[] array, int indexA, int indexB)
+ {
+	 int temp = array[indexA];
+	 array[indexA] = array[indexB];
+	 array[indexB] = temp;
  }
- private static int partition(int[] nums, int i, int j) {
-     final int pivot = nums[i];//randomly choose a pivot
-     while (i < j) {
-         while (i < j && nums[j] >= pivot) --j;
-         nums[i] = nums[j];
-         while(i < j && nums[i] <= pivot) ++i;
-         nums[j] = nums[i];
-     }
-     nums[i] = pivot;
-     return i;
- }
+ 
 }
