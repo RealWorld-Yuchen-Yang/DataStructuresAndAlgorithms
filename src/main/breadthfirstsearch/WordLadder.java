@@ -55,12 +55,18 @@ public class WordLadder
 		final Function<State, Boolean> stateIsValid = (State s)->wordList.contains(s.word) || s.word.equals(endWord);
 		final Function<State, Boolean> stateIsTarget = (State s)->s.word.equals(endWord);
 		final Function<State, HashSet<State>> stateExtend = (State s)->{
+			//one step of breadth search
 			HashSet<State> result = new HashSet<>();
 			
 			char[] array = s.word.toCharArray();
 			for(int i=0; i<array.length;i++)
 			{
 				final char old = array[i];
+				
+				/*
+				 * brute force approach, try to modify one character of the string, 
+				 * if it happens to match strings in dictionary, then add it into the result path
+				 */
 				for(char c = 'a'; c <= 'z'; c++)
 				{
 					//prevent replacing the same value
@@ -89,6 +95,8 @@ public class WordLadder
 		while(!q.isEmpty())
 		{
 			State state = q.poll();//dequeue the first element of the queue
+
+			//terminate condition
 			if(stateIsTarget.apply(state))
 			{
 				return state.level + 1;
@@ -98,7 +106,7 @@ public class WordLadder
 			for(State newState: newStates)
 			{
 				q.offer(newState);
-				visited.addAll(newStates);
+				visited.add(newState);
 			}
 				
 		}
