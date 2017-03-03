@@ -89,8 +89,8 @@ public class NQueens
 				 *  position[j].row" stores Queen in Position(j, row)
 				 */
 				if(i == positions[j].col//potential Position(current,i) is on the same column with previous queen Position(j,col), so invalid
-				|| i-current == positions[j].col - positions[j].row//potential position Position(current, i) is on (top-left) --> (bottom-right) diagonal of a previous queen, so invalid
-				|| i+current == positions[j].row + positions[j].col)//potential position Position(current, i) is on (bottom-left) --> (top-right) diagonal of a previous queen, so invalid
+				|| Math.abs(i-current) == Math.abs(positions[j].col - positions[j].row))//potential position Position(current, i) is on same diagonal of a previous queen(position[j]), so invalid
+					//Note we have no way of knowing previous Queen position[j]'s col number unless we read the stored information position[j].col from it
 				{
 					foundSafe = false;
 					break;
