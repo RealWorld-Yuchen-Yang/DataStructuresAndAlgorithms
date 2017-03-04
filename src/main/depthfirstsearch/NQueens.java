@@ -22,7 +22,7 @@ public class NQueens
 	public static List<List<String>> solveNQueens(int n)
 	{
 		List<List<String>> result = new ArrayList();
-		Position[] positions = new Position[n];//Position array's index is the row number of the Queen
+		Position[] positions = new Position[n];//Position array's index is the row number of the Queen, there should be at most n queens
 		solve(0, positions, result, n);
 		return result;
 	}
