@@ -49,11 +49,11 @@ public class LongestConsecutiveSequence
 				++length;
 			}
 			longest = Math.max(longest, length);
-			for(Integer integer : set)
-			{
-				System.out.print(integer);
-			}
-			System.out.println();
+//			for(Integer integer : set)
+//			{
+//				System.out.print(integer);
+//			}
+//			System.out.println();
 		}
 		return longest;
 	}
@@ -63,29 +63,3 @@ public class LongestConsecutiveSequence
 		System.out.println(longestConsecutive(new int[]{100, 4, 200, 1, 3, 2}));
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
