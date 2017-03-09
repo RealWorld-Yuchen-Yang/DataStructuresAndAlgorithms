@@ -22,7 +22,7 @@ package main.linearlist;
  */
 public class TrappingRainWater
 {
-	public static trap(int[] nums)
+	public static int trap(int[] nums)
 	{
 		assert nums!=null;
 		final int n=nums.length;
