@@ -1,4 +1,4 @@
-package mnt ain.linnearlist;nt
+package main.linearlist;
 
 import java.util.HashMap;
 import java.util.Map;
