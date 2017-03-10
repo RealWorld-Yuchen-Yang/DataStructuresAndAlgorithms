@@ -32,7 +32,7 @@ public class ContainsDuplicateII
 	public static boolean containsNearByDuplicate(int[] nums, int k)
 	{
 		final Map<Integer, Integer> map = new HashMap();
-		int max = Integer.MIN_VALUE;
+		int min = Integer.MAX_VALUE;
 	
 		for(int i=0; i<nums.length; i++)
 		{
@@ -40,10 +40,10 @@ public class ContainsDuplicateII
 			{
 				final int preIndex = map.get(nums[i]);
 				final int gap = i - preIndex;
-				max = Math.max(max, gap);
+				min = Math.min(min, gap);
 			}
 			map.put(nums[i], i);
 		}
-		return max<=k;
+		return min<=k;
 	}
 }
