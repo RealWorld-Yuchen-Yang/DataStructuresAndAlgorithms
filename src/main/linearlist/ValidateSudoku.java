@@ -25,7 +25,7 @@ public class ValidateSudoku
 			Arrays.fill(used, false);
 			for(int j=0; j<9; i++)
 			{
-				if(!validCell(board[i][j]), used)
+				if(!validCell(board[i][j], used))
 				{
 					return false;
 				}
@@ -35,7 +35,7 @@ public class ValidateSudoku
 			Arrays.fill(used, false);
 			for(int j=0; j<9; j++)
 			{
-				if(!validCell(board[j][i]), used)
+				if(!validCell(board[j][i], used))
 				{
 					return false;
 				}
