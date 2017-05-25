@@ -5,6 +5,9 @@ import java.util.Map;
 
 import javax.print.attribute.HashAttributeSet;
 
+import org.junit.Assert;
+import org.junit.Test;
+
 /**
  * Problem: 
  * 	Given two strings s and t, determine if they are isomorphic
@@ -28,6 +31,16 @@ import javax.print.attribute.HashAttributeSet;
  */
 public class IsomorphicStrings
 {
+	@Test
+	public void testIsIsomorphic()
+	{
+		String str1 = "egg";
+		String str2 = "add";
+		String str3 = "yyc";
+		Assert.assertTrue(isIsomorphic(str1, str2));
+		Assert.assertFalse(isIsomorphic(str1, str3));
+	}
+	
 	public static boolean isIsomorphic(String s, String t)
 	{
 		if(s.length() != t.length())
@@ -49,11 +62,11 @@ public class IsomorphicStrings
 				if(map1.get(c1) != c2)
 				{
 					return false;
-				}
-				else
-				{
-					map1.put(c1, c2);
-				}
+				}	
+			}
+			else
+			{
+				map1.put(c1, c2);
 			}
 			
 			if(map2.containsKey(c2))
@@ -62,11 +75,12 @@ public class IsomorphicStrings
 				{
 					return false;
 				}
-				else
-				{
-					map2.put(c2, c1);
-				}
-			}	
+			}
+			else
+			{
+				map2.put(c2, c1);
+			}
+	
 		}
 		return true;
 	}
