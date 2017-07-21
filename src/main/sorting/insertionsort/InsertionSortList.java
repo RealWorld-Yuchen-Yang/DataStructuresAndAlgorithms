@@ -3,6 +3,9 @@ package main.sorting.insertionsort;
 import main.sorting.ListNode;
 import test.utils.YuchenPrinter;
 
+/**
+ * the sorted list will be in ascending order
+ */
 public class InsertionSortList {
 	   public static ListNode insertionSortList(ListNode head) {
 	        ListNode dummy = new ListNode(Integer.MIN_VALUE);
@@ -14,16 +17,16 @@ public class InsertionSortList {
 
 	            /*
 	             * insert node "cur" after node "pos",
-	             * remember, when doing insertion, 
-	             * always handle the "next" pointer first, then the node itself 
+	             * remember, when doing insertion,
+	             * always handle the "next" pointer first, then the node itself
 	             */
 	            cur.next = pos.next;
 	            pos.next = cur;
-	            
+
 	            /*
 	             * move the cur pointer one step further
 	             * note that, we are not trying to link the anything to cur
-	             * which means we have broken the array into two parts, 
+	             * which means we have broken the array into two parts,
 	             * and the break point it before the "cur" node
 	             */
 	            cur = tmp;
@@ -33,6 +36,8 @@ public class InsertionSortList {
 
 	   /*
 	    * Here we assign dummy as the input head
+			* return would be the insertion point,
+			* which is cur -> returnedPos -> currentNext
 	    */
 	    private static ListNode findInsertPos(ListNode head, int x) {
 	        ListNode pre = null;
