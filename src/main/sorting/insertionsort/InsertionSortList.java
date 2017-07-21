@@ -35,9 +35,8 @@ public class InsertionSortList {
 	    }
 
 	   /*
-	    * Here we assign dummy as the input head
-			* return would be the insertion point,
-			* which is cur -> returnedPos -> currentNext
+	    * insert position is the previous position that firstly containing value > the current value,
+			* it should be switched with the current node
 	    */
 	    private static ListNode findInsertPos(ListNode head, int x) {
 	        ListNode pre = null;
