@@ -1,6 +1,10 @@
 package main.singlylinkedlist;
 
 /**
+ * Useful notes for singlylinkedlist
+ *		when marking node assignment, use '--'
+ *		when marking pointer, use '->'
+ *
  * SinglyLinkedListNode
  * @author yuchenyang
  *
