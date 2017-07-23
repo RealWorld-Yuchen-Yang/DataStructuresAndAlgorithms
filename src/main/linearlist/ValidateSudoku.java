@@ -4,11 +4,11 @@ import java.util.Arrays;
 
 /**
  * Problem:
- * 	Determine if a Sudoku is valid. 
+ * 	Determine if a Sudoku is valid.
  * 	That is if every row/column/3x3 boxes contains 1~9
- * 	The Sudoku board could be partially filled, 
+ * 	The Sudoku board could be partially filled,
  * 	where empty cells are filled with the '.'
- * 	
+ *
  * @author yuchenyang
  *
  */
@@ -17,20 +17,20 @@ public class ValidateSudoku
 	public boolean isValidSudoku(char[][] board)
 	{
 		boolean[] used = new boolean[9];//if digit 1~9 has been used
-		
+
 		//check rows and columns
 		for(int i=0; i<9; i++)
 		{
 			//check rows
 			Arrays.fill(used, false);
-			for(int j=0; j<9; i++)
+			for(int j=0; j<9; j++)
 			{
 				if(!validCell(board[i][j], used))
 				{
 					return false;
 				}
 			}
-			
+
 			//check columns
 			Arrays.fill(used, false);
 			for(int j=0; j<9; j++)
@@ -41,7 +41,7 @@ public class ValidateSudoku
 				}
 			}
 		}
-		
+
 		//check boxes
 		for(int row=0; row<3; row++)
 		{
@@ -62,14 +62,14 @@ public class ValidateSudoku
 		}
 		return true;
 	}
-	
+
 	private static boolean validCell(char ch, boolean[] used)
 	{
-		if(ch == '.') 
+		if(ch == '.')
 		{
 			return true;
 		}
-		
+
 		if(used[ch-'1'])
 		{
 			//if the current char number has been used, it is no longer valid
