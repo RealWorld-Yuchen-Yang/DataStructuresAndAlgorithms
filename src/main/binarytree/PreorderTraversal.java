@@ -5,11 +5,13 @@ import java.util.List;
 import java.util.Stack;
 
 public class PreorderTraversal {
-	
+
 	/*
-	 * Idea: 
+	*  The demand of "traversal" is to return a list of nodes whose order is as demanded from the given data structure
+	*
+	 * Idea:
 	 * recursively push the currentRoot, currentRoot.right, currentRoot.left into a stack
-	 * And then pop them inorder 
+	 * And then pop them inorder
 	 */
 	public static List stackImp(TreeNode root)
 	{
@@ -17,7 +19,7 @@ public class PreorderTraversal {
 		Stack<TreeNode> s = new Stack();
 		if(root != null)
 			s.push(root);
-		
+
 		while(!s.isEmpty())
 		{
 			final TreeNode p = s.pop();
@@ -27,7 +29,7 @@ public class PreorderTraversal {
 			if(p.left!= null)
 				s.push(p.left);
 		}
-		
+
 		return result;
-	} 
+	}
 }
