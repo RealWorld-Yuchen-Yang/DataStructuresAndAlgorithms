@@ -1,6 +1,5 @@
 package main.sorting.quicksort;
 
-import test.utils.YuchenPrinter;
 
 /**
  * Find the k-th largest element in an unsorted array
@@ -73,10 +72,8 @@ public class KthLargestElementInAnArray {
 	  * We are doing this because,
 	  * we would always want to 
 	  */
-	 YuchenPrinter.printArray(array, "Before swapping");
 	 System.out.println(pivot);
 	 swap(array, leftPointer, right);//restore the pivotValue to its position
-	 YuchenPrinter.printArray(array, "After swapping");
 
 	 return leftPointer;
  }

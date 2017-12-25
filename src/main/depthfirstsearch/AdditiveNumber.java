@@ -73,10 +73,10 @@ public class AdditiveNumber
 
 	}
 
-	@Test
+	@org.junit.Test
 	public void isAdditiveNumberTest()
 	{
 		String inputNumString = "199100199";
-		Assert.assertTrue(isAdditiveNumber(inputNumString));
+		junit.framework.Assert.assertTrue(isAdditiveNumber(inputNumString));
 	}
 }

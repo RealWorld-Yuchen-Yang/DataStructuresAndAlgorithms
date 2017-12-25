@@ -31,13 +31,12 @@ public class PartitionList
 				rightCur.next = cur;
 				rightCur = cur;
 			}
-			
-			//link the leftList and rightList together
-			leftCur.next = rightDummy.next;
-			rightCur.next = null;
-			
 		}
-		
+
+		//link the leftList and rightList together
+		leftCur.next = rightDummy.next;
+		rightCur.next = null;
+
 		return leftDummy.next;
 	}
 }

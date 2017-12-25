@@ -24,7 +24,7 @@ package main.singlylinkedlist;
  */
 public class PalindromeLinkedList
 {
-	public static isPalindrome(ListNode head)
+	public static boolean isPalindrome(ListNode head)
 	{
 		if(head == null)
 		{

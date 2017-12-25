@@ -1,7 +1,6 @@
 package main.sorting.insertionsort;
 
 import main.sorting.ListNode;
-import test.utils.YuchenPrinter;
 
 /**
  * the sorted list will be in ascending order

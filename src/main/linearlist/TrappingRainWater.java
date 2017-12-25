@@ -1,5 +1,7 @@
 package main.linearlist;
 
+import java.util.Arrays;
+
 /**
  * Problem: 
  * 	Given n non-negative integers representing an elevation map 
@@ -50,4 +52,7 @@ public class TrappingRainWater
 		}
 		return totalVolume;
 	}
+
+
+	public static void main(String[] args){}
 }

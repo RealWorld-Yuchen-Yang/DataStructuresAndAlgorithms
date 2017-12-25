@@ -30,6 +30,8 @@ public class RemoveDuplicatesFromSortedArrayII
 				 * this is an acceptance test,
 				 * only if the current situation satisfies the requirement will we accept the current element
 				 * and move on to the next index
+				 *
+				 */
 				nums[index++]=nums[i];
 			}
 		}

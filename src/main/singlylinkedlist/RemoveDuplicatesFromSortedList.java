@@ -24,7 +24,7 @@ public class RemoveDuplicatesFromSortedList
 			return null;
 		}
 		
-		for(ListNode prev = head, cur = head.next; cur != null;//only if the furtherest pointer reaches null will we stop iterating. In this case is "cur"
+		for(ListNode prev = head, cur = head.next; cur != null;//only if the furthest pointer reaches null will we stop iterating. In this case is "cur"
 				cur = prev.next)
 		{
 			if(prev.val == cur.val)

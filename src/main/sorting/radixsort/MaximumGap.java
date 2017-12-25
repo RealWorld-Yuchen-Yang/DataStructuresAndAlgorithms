@@ -130,7 +130,7 @@ public class MaximumGap
 		}
 		
 		/*
-		 * here we are actually do the radix sort base on
+		 * here we actually do the radix sort base on
 		 * each element's difference between the minVal, 
 		 * instead of the absolute value of the elements, 
 		 * The reason is because we would like to reduce 

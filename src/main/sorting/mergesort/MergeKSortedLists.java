@@ -1,7 +1,5 @@
 package main.sorting.mergesort;
 
-import java.awt.List;
-
 import main.sorting.ListNode;
 
 /**
