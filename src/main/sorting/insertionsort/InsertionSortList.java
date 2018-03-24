@@ -11,6 +11,11 @@ public class InsertionSortList {
 	        //dummy.next = head;
 
 	        for (ListNode cur = head; cur != null;) {
+	        	/*
+	        	Note: there are two streams through the list
+	        			1. the current for loop, which is the outer loop of the iteration
+	        			2. the findInsertPos loop, which is the inner loop of the iteration
+	        	 */
 	            ListNode pos = findInsertPos(dummy, cur.val);
 	            ListNode tmp = cur.next;//before modification, firstly store the orignal cur.next
 
