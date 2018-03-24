@@ -35,7 +35,7 @@ public class AddTwoNumbers
 			final int radixSum = val1+val2+carry;
 			final int radix = radixSum%10;
 			carry=radixSum/10;
-			pre.next = new ListNode(radixSum);			
+			pre.next = new ListNode(radix);
 		}
 		
 		//deal with last potential "carry" radix
